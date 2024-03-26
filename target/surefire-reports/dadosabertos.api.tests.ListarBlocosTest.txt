@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: dadosabertos.api.tests.ListarBlocosTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.385 s -- in dadosabertos.api.tests.ListarBlocosTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.029 s -- in dadosabertos.api.tests.ListarBlocosTest
