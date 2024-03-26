@@ -1,0 +1,35 @@
+# Arquivos de configuração do Maven
+pom.xml.*
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Dependências do Maven
+dependency-reduced-pom.xml
+.mvn/
+
+# Arquivos de configuração do IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+
+# Arquivos de saída do Eclipse
+bin/
+*.launch
+.settings/
+.project
+.classpath
+
+# Arquivos temporários
+*.log
+*.swp
+
+# Arquivos de log
+log/
+logs/
+*.log.*
+
+# Arquivos de configuração específicos do sistema operacional
+.DS_Store
+Thumbs.db
