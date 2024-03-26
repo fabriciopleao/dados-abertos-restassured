@@ -31,6 +31,8 @@ public class ListarBlocosTest {
 	@Test
 	public void testConsultarBloco() {
 		assertEquals(200, response.getStatusCode());
+		
+		// Mude os valores das validacoes de acordo com o bloco partidario escolhido.
 		assertEquals("584", id);
 		assertEquals("Federação Brasil da Esperança - Fe Brasil", id);
 		assertEquals("57", id);
