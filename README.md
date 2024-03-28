@@ -1,6 +1,8 @@
 # dados-abertos-restassured
 Projeto de automação de teste API utilizando a linguagem Java com a biblioteca Restassured, programado para validar listagens de blocos partidários através do site Dados Abertos.
 
+Dados Abertos: https://dadosabertos.camara.leg.br/swagger/api.html
+
 ## Tecnologias utilizadas no projeto:
 
 - Java
