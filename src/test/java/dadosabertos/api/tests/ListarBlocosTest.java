@@ -1,45 +1,47 @@
 package dadosabertos.api.tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import dadosabertos.api.objects.ListarBlocosModel;
+import dadosabertos.api.objects.ListarBlocosObjects;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
 public class ListarBlocosTest {
 
-	private String id;
-	private String nome;
-	private String idLegislatura;
-
+	private ListarBlocosModel bloco;
 	Response response;
-	
+
 	@BeforeEach
 	public void setUp() {
 		RestAssured.baseURI = "https://dadosabertos.camara.leg.br/api/v2";
 		response = RestAssured.get("/blocos");
-		
-		// Selecione o bloco nos conchetes, Ex: [0], [1], [2]...
-		id = response.jsonPath().getString("dados[0].id");
-		nome = response.jsonPath().getString("dados[0].nome");
-		idLegislatura = response.jsonPath().getString("dados[0].idLegislatura");
 	}
-
 
 	@Test
-	public void testConsultarBloco() {
+	public void testConsultarBlocoExistente() {
+		
+		// Informe o bloco desejado: 0, 1, 2 ...
+		bloco = ListarBlocosObjects.consultarBloco(response, 0);
+		
 		assertEquals(200, response.getStatusCode());
-		
-		// Mude os valores das validacoes de acordo com o bloco partidario escolhido.
-		assertEquals("584", id);
-		assertEquals("Federação Brasil da Esperança - Fe Brasil", nome);
-		assertEquals("57", idLegislatura);
-		
-		System.out.println("Status Code: " + response.getStatusCode() + "\n");
-		System.out.println("ID: " + id);
-		System.out.println("Nome: " + nome);
-		System.out.println("ID Legislatura: " + idLegislatura);
+		assertNotNull(bloco);
+		assertEquals("584", bloco.getId());
+		assertEquals("Federação Brasil da Esperança - Fe Brasil", bloco.getNome());
+		assertEquals("57", bloco.getIdLegislatura());
+
 	}
+
+	@Test
+	public void testConsultarBlocoInexistente() {
+		bloco = ListarBlocosObjects.consultarBloco(response, 1000);
+		assertNull(bloco);
+
+	}
+
 }
